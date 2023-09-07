@@ -1,0 +1,79 @@
+name: Base Functionality Checks
+
+on: [push]
+
+jobs:
+  HasMainMethod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome MatchFileFragment --file Application.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok --fragment 'public static void main' --count 1 --description "Application.java contains a main method."
+
+  ImplementsGameLoop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome MatchFileFragment --file Application.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok --fragment 'while' --count 1 --description "Application.java contains a while loop."
+
+  AsksUserForInput:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome MatchFileFragment --file Application.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok --fragment 'Scanner' --count 1 --description "Application.java creates a Scanner object."
+          
+  OutputsToConsole:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome MatchFileFragment --file Application.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok --fragment 'System.out.print' --count 1 --description "Application.java prints to the console."
+          
+  HasTickMethod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome MatchFileFragment --file Application.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok --fragment 'tick()' --count 1 --description "Application.java calls the tick method."

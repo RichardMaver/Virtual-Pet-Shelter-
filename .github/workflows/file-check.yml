@@ -1,0 +1,138 @@
+name: File Checks
+
+on: [push]
+
+jobs:
+  HasVirtualPetClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPet
+          gatorgrader --nowelcome ConfirmFileExists --file VirtualPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPet --description 'VirtualPet.java exists.'
+
+  HasApplicationClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome ConfirmFileExists --file Application.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok --description 'Application.java exists.'
+
+  HasVirtualPetShelterClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter
+          gatorgrader --nowelcome ConfirmFileExists --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --description 'VirtualPetShelter.java exists.'
+          
+  HasLitterBoxClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/Interfaces
+          gatorgrader --nowelcome ConfirmFileExists --file LitterBox.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/Interfaces --description 'LitterBox.java exists.'
+          
+  HasCageClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/Interfaces
+          gatorgrader --nowelcome ConfirmFileExists --file Cage.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/Interfaces --description 'Cage.java exists.'
+          
+  HasWalkingClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/Interfaces
+          gatorgrader --nowelcome ConfirmFileExists --file Walking.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/Interfaces --description 'Walking.java exists.'
+          
+  HasRoboticPetClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets
+          gatorgrader --nowelcome ConfirmFileExists --file RoboticPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets --description 'RoboticPet.java exists.'
+          
+  HasOrganicPetClass:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets
+          gatorgrader --nowelcome ConfirmFileExists --file OrganicPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets --description 'OrganicPet.java exists.'
+          
+  HasReadME:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          gatorgrader --nowelcome ConfirmFileExists --file README.md --directory $GITHUB_WORKSPACE --description 'README.md exists.'

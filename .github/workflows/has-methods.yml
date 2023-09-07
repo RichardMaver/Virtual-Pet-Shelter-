@@ -1,0 +1,230 @@
+name: Has Method Checks
+
+on:
+  push
+
+jobs:
+  HasMethodFeedAllPets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --fragment 'void feedAll' --count 1 --description "VirtualPetShelter.java contains a feedAllPets() method."
+
+  HasMethodWaterAllPets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --fragment 'void waterAll' --count 1 --description "VirtualPetShelter.java contains a waterAllPets() method."
+
+  HasMethodPlayWithPet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --fragment 'void playWith' --count 1 --description "VirtualPetShelter.java contains a playWithPet() method."
+
+  HasMethodAdoptPet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --fragment 'void adopt' --count 1 --description "VirtualPetShelter.java contains an adoptPet() method."
+
+  HasMethodIntakePet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter/VirtualPetShelter
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --fragment 'void intake' --count 1 --description "VirtualPetShelter.java contains an intakePet() method."
+
+  CanGivePetAName:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPet
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPet --fragment 'name' --count 1 --description "VirtualPet.java contains a 'name' instance variable."
+
+  CanGivePetADescription:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPet
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPet --fragment 'description' --count 1 --description "VirtualPet.java contains a 'description' instance variable."
+
+  TracksCageCleanliness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets
+          gatorgrader --nowelcome MatchFileFragment --file OrganicDog.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets --fragment 'cageCleanliness' --count 1 --description "OrganicDog.java tracks cage cleanliness."
+
+  TracksOilLevel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets
+          gatorgrader --nowelcome MatchFileFragment --file RoboticPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets --fragment 'oilLevel' --count 1 --description "RoboticPet.java tracks oil/maintenance level."
+
+  MethodToOilRoboticPets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets
+          gatorgrader --nowelcome MatchFileFragment --file RoboticPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets --fragment 'void oilPet' --count 1 --description "RoboticPet.java has a method to oil robotic pets."
+
+  MethodToWalkOrganicDogs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets
+          gatorgrader --nowelcome MatchFileFragment --file OrganicDog.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets --fragment 'void walkDog' --count 1 --description "OrganicDog.java has a method to walk dogs."
+
+  MethodToWalkRoboticDogs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets
+          gatorgrader --nowelcome MatchFileFragment --file RoboticDog.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets --fragment 'void walkDog' --count 1 --description "RoboticDog.java has a method to walk dogs."
+
+  MethodToCleanDogCages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter
+          gatorgrader --nowelcome MatchFileFragment --file VirtualPetShelter.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/VirtualPetShelter --fragment 'void cleanDogCages' --count 1 --description "VirtualPetShelter.java has a method to clean dog cages."
+
+  NoFeedingOfRoboticPets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets
+          gatorgrader --nowelcome MatchFileFragment --file RoboticPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/RoboticPets --fragment 'void feed' --count 0 --description "RoboticPet.java should not have a method to feed the pet."
+
+  NoOilingOfOrganicPets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install gatorgrader
+      - name: Run check
+        run: |
+          cd $GITHUB_WORKSPACE/src/main/java/pets_amok
+          gatorgrader --nowelcome MatchFileFragment --file OrganicPet.java --directory $GITHUB_WORKSPACE/src/main/java/pets_amok/OrganicPets --fragment 'void feed' --count 0 --description "OrganicPet.java should not have a method to oil the pet."
